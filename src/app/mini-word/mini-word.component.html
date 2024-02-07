@@ -1,0 +1,27 @@
+<div class="container mt-3">
+      <div
+      [style.Color]="color"
+      [style.Size]="size"
+      [style.Font]="font"> 
+      Text 
+    </div>
+    <form>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="colorInput">Champ Texte</label>
+          <input type="text" name='colorInput' [(ngModel)]="color" class="form-control" placeholder="Color" id="colorInput" >
+        </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="numberInput">Champ Nombre</label>
+          <input type="number" name='numberInput' [(ngModel)]="size" class="form-control" id="numberInput" placeholder="Taille" >
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="fontSelect">Font</label>
+          <select class="form-control" id="fontSelect" name='fontInput' id="fontInput"  >
+            <option value="arial">arial </option>
+            <option value="calibri">calibri</option>
+          </select>
+        </div>
+    </form>
+  </div>
