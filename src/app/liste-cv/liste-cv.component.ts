@@ -12,7 +12,14 @@ export class ListeCvComponent {
   isHidden = true;
   @Output()
   forwardCv = new EventEmitter();
-  constructor() {}
+  ageThreshold : number = 40;
+  seniors: Cv[]; 
+  juniors: Cv[]; 
+  selectedTab: string = 'above' ;
+  constructor() {
+    this.seniors=this.filterSeniors();
+    this.juniors=this.filterJuniors();
+  }
   showHide() {
     this.isHidden = !this.isHidden;
   }
@@ -21,5 +28,11 @@ export class ListeCvComponent {
     console.log(cv);
 
     this.forwardCv.emit(cv);
+  }
+  filterJuniors(): Cv[] {
+    return this.cvs.filter(cv => cv.age >= this.ageThreshold);
+  }
+  filterSeniors(): Cv[] {
+    return this.cvs.filter(cv => cv.age < this.ageThreshold);
   }
 }

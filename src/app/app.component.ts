@@ -7,5 +7,5 @@ import { AppRoutingModule } from './app-routing.module';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'tp1-new';
+  title = 'tp2';
 }

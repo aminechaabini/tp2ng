@@ -1,0 +1,11 @@
+<div>
+    <button (click)="loadMoreProducts()">
+  Show More
+</button>
+</div>
+<div >
+  <div *ngFor="let product of productList | async">
+    <img [src]="product.thumbnail">
+    <p>{{product.title}}</p>
+  </div>
+</div>

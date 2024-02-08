@@ -1,10 +1,19 @@
-<ol class="list-group">
+<div>
+  <button (click)="selectedTab='above'">SENIORS</button>
+  <button (click)="selectedTab='below'">JUNIORS</button>
+</div>
+<ol class="list-group" *ngIf="selectedTab === 'above'">
     <li
-      [ngClass]="{
-        'list-group-item-primary': isOdd,
-        'list-group-item-secondary': !isOdd
-      }"
-      *ngFor="let cv of cvs; let isOdd = odd"
+      *ngFor="let cv of seniors"
+      class="list-group-item"
+    >
+      <app-item-cv (selectCv)="onSelectCv($event)" [cv]="cv"></app-item-cv>
+    </li>
+  </ol>
+
+  <ol class="list-group" *ngIf="selectedTab === 'below'">
+    <li
+      *ngFor="let cv of juniors"
       class="list-group-item"
     >
       <app-item-cv (selectCv)="onSelectCv($event)" [cv]="cv"></app-item-cv>

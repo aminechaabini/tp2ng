@@ -1,0 +1,16 @@
+<div>
+<input type="search" 
+id="searchInput" 
+[formControl]="searchInput" 
+required>
+</div>
+<div *ngIf="searchResults">
+    <ul *ngFor="let cv of searchResults" ></ul>  
+    <li (click)="afficherDetails(cv)">
+        <div>
+        <p >
+            {{ cv?.firstName }} {{ cv?.name }}
+        </p>
+        </div>
+    </li>
+</div>

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CvServiceService {
   private cvs : Cv[];
-  url = 'https://apilb.tridevs.net/api/personnes';
+  url = 'https://apilb.tridevs.net/api/personnes/';
   constructor(private http: HttpClient) { 
     this.cvs= [
       new Cv(1, "chaabini", "amine", "ac.jpg"),
@@ -21,4 +21,11 @@ export class CvServiceService {
   getLocalCvs(): Cv[]{
     return this.cvs;
   }
+  deleteCv(id : number){
+    return this.http.delete(`${this.url}${id}`);
+  }
+  getCvById(id : number)  :Cv | undefined{
+    return this.cvs.find((cv) => cv.id == id);
+  }
+ 
 }
